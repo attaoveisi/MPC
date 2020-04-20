@@ -1,0 +1,9 @@
+-- ******** User variables from model_usr.trc *********************************
+-- RTI_USR_TRC_BEGIN
+
+group "User Variables"
+{
+ flags: COLLAPSED
+}
+
+-- Contents of file MPC_AVC_implementation_usr.trc:

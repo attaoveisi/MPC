@@ -1,0 +1,529 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDefines(block,system) void
+   %openfile chartConstBuf
+   %closefile chartConstBuf
+   %return chartConstBuf
+%endfunction %% ChartDefines
+%function ChartFunctions(block,system) void
+   %openfile chartFcnsBuf
+     %assign junkVal = LibGenMathFcnCall("rtIsNaN",FcnGetDataTypeIdFromName("double"),"0.0","")
+%assign junkVal = LibGenMathFcnCall("abs",FcnGetDataTypeIdFromName("double"),"0.0","")
+            
+            
+            
+   %closefile chartFcnsBuf
+   %return chartFcnsBuf
+%endfunction %% ChartFunctions
+%function ChartFunctionProtos(block,system,oFile) void
+   %openfile prototypesBuf
+   %closefile prototypesBuf
+   %<SLibSetModelFileAttribute(oFile,"FcnPrototypes",prototypesBuf)>
+%endfunction %% ChartFunctionProtos
+%function ChartSharedFunctions(block,system) void
+   %openfile chartFcnsBuf
+                 %if %<!SFLibLookupUtilityFunction("knopdjekjecjlnoh_eml_ixamax")>
+                    int32_T knopdjekjecjlnoh_eml_ixamax(int32_T eml_n, real_T eml_x[100], int32_T eml_ix0, int32_T eml_incx)
+{
+int32_T eml_idxmax;
+int32_T eml_ix;
+real_T eml_smax;
+int32_T eml_k;
+real_T eml_x_0;
+if((!(eml_n < 1)) && (!(eml_incx < 1))) {
+eml_idxmax = 1;
+if(eml_n > 1) {
+eml_ix = eml_ix0;
+eml_smax = fabs(eml_x[eml_ix0 - 1]);
+for(eml_k = 2; eml_k <= eml_n; eml_k++) {
+eml_ix += eml_incx;
+eml_x_0 = fabs(eml_x[eml_ix - 1]);
+if(eml_x_0 > eml_smax) {
+eml_idxmax = eml_k;
+eml_smax = eml_x_0;
+}
+}
+}
+} else {
+return 0;
+}
+return eml_idxmax;
+}
+                    %<SFLibInsertUtilityFunction("knopdjekjecjlnoh_eml_ixamax")>
+                 %endif
+                 %if %<!SFLibLookupUtilityFunction("nglfaaiedbaiecba_mldivide")>
+                    void nglfaaiedbaiecba_mldivide(real_T eml_A[100], real_T eml_B[40], real_T eml_Y[40])
+{
+int32_T eml_info;
+int32_T eml_ip;
+real_T eml_A_0[100];
+int32_T eml_ipiv[10];
+int32_T eml_j;
+real_T eml_temp;
+int32_T eml_kAcol;
+int32_T eml_i;
+int32_T eml_i_0;
+for(eml_info = 0; eml_info < 10; eml_info++) {
+for(eml_ip = 0; eml_ip < 10; eml_ip++) {
+eml_A_0[eml_ip + 10 * eml_info] = eml_A[eml_ip + 10 * eml_info];
+}
+}
+refp1_dbielngdlfcboppp_eml_xget(eml_A_0, eml_ipiv, &eml_info);
+for(eml_info = 0; eml_info < 4; eml_info++) {
+for(eml_ip = 0; eml_ip < 10; eml_ip++) {
+eml_Y[eml_ip + 10 * eml_info] = eml_B[eml_ip + 10 * eml_info];
+}
+}
+for(eml_info = 0; eml_info < 10; eml_info++) {
+if(eml_ipiv[eml_info] != eml_info + 1) {
+eml_ip = eml_ipiv[eml_info];
+for(eml_j = 0; eml_j < 4; eml_j++) {
+eml_temp = eml_Y[eml_info + 10 * eml_j];
+eml_Y[eml_info + 10 * eml_j] = eml_Y[(eml_ip - 1) + 10 * eml_j];
+eml_Y[(eml_ip - 1) + 10 * eml_j] = eml_temp;
+}
+}
+}
+for(eml_info = 0; eml_info < 4; eml_info++) {
+eml_ip = eml_info * 10;
+for(eml_j = 0; eml_j < 10; eml_j++) {
+eml_kAcol = eml_j * 10;
+if(eml_Y[((eml_j + 1) + eml_ip) - 1] != 0.0) {
+for(eml_i = eml_j + 2; eml_i <= 10; eml_i++) {
+eml_Y[(eml_i + eml_ip) - 1] -= eml_Y[((eml_j + 1) + eml_ip) - 1] * eml_A_0[(eml_i + eml_kAcol) - 1];
+}
+}
+}
+}
+for(eml_info = 0; eml_info < 4; eml_info++) {
+eml_ip = eml_info * 10;
+for(eml_j = 10; eml_j > 0; eml_j += -1) {
+eml_kAcol = (eml_j - 1) * 10;
+if(eml_Y[(eml_j + eml_ip) - 1] != 0.0) {
+eml_Y[(eml_j + eml_ip) - 1] /= eml_A_0[(eml_j + eml_kAcol) - 1];
+eml_i = eml_j - 1;
+for(eml_i_0 = 1; eml_i_0 <= eml_i; eml_i_0++) {
+eml_Y[(eml_i_0 + eml_ip) - 1] -= eml_Y[(eml_j + eml_ip) - 1] * eml_A_0[(eml_i_0 + eml_kAcol) - 1];
+}
+}
+}
+}
+}
+                    %<SFLibInsertUtilityFunction("nglfaaiedbaiecba_mldivide")>
+                 %endif
+                 %if %<!SFLibLookupUtilityFunction("nglnohdbopphdjmg_mldivide")>
+                    void nglnohdbopphdjmg_mldivide(real_T eml_A[100], real_T eml_B[10], real_T eml_Y[10])
+{
+int32_T eml_info;
+int32_T eml_ip;
+real_T eml_A_0[100];
+int32_T eml_ipiv[10];
+real_T eml_temp;
+int32_T eml_i;
+int32_T eml_i_0;
+for(eml_info = 0; eml_info < 10; eml_info++) {
+for(eml_ip = 0; eml_ip < 10; eml_ip++) {
+eml_A_0[eml_ip + 10 * eml_info] = eml_A[eml_ip + 10 * eml_info];
+}
+}
+refp1_dbielngdlfcboppp_eml_xget(eml_A_0, eml_ipiv, &eml_info);
+for(eml_info = 0; eml_info < 10; eml_info++) {
+eml_Y[eml_info] = eml_B[eml_info];
+}
+for(eml_info = 0; eml_info < 10; eml_info++) {
+if(eml_ipiv[eml_info] != eml_info + 1) {
+eml_ip = eml_ipiv[eml_info];
+eml_temp = eml_Y[eml_info];
+eml_Y[eml_info] = eml_Y[eml_ip - 1];
+eml_Y[eml_ip - 1] = eml_temp;
+}
+}
+for(eml_info = 0; eml_info < 10; eml_info++) {
+eml_ip = eml_info * 10;
+if(eml_Y[eml_info] != 0.0) {
+for(eml_i = eml_info + 2; eml_i <= 10; eml_i++) {
+eml_Y[eml_i - 1] -= eml_Y[eml_info] * eml_A_0[(eml_i + eml_ip) - 1];
+}
+}
+}
+for(eml_info = 10; eml_info > 0; eml_info += -1) {
+eml_ip = (eml_info - 1) * 10;
+if(eml_Y[eml_info - 1] != 0.0) {
+eml_Y[eml_info - 1] /= eml_A_0[(eml_info + eml_ip) - 1];
+eml_i = eml_info - 1;
+for(eml_i_0 = 1; eml_i_0 <= eml_i; eml_i_0++) {
+eml_Y[eml_i_0 - 1] -= eml_Y[eml_info - 1] * eml_A_0[(eml_i_0 + eml_ip) - 1];
+}
+}
+}
+}
+                    %<SFLibInsertUtilityFunction("nglnohdbopphdjmg_mldivide")>
+                 %endif
+                 %if %<!SFLibLookupUtilityFunction("refp1_ecbiphdbcbaijmoh_eml_xswa")>
+                    void refp1_ecbiphdbcbaijmoh_eml_xswa(real_T eml_x[100], int32_T eml_ix0, int32_T eml_iy0)
+{
+int32_T eml_ix;
+int32_T eml_iy;
+int32_T eml_k;
+real_T eml_temp;
+eml_ix = eml_ix0;
+eml_iy = eml_iy0;
+for(eml_k = 0; eml_k < 10; eml_k++) {
+eml_temp = eml_x[eml_ix - 1];
+eml_x[eml_ix - 1] = eml_x[eml_iy - 1];
+eml_x[eml_iy - 1] = eml_temp;
+eml_iy += 10;
+eml_ix += 10;
+}
+}
+                    %<SFLibInsertUtilityFunction("refp1_ecbiphdbcbaijmoh_eml_xswa")>
+                 %endif
+                 %if %<!SFLibLookupUtilityFunction("refp5_mglfecbinohdlfkf_eml_xger")>
+                    void refp5_mglfecbinohdlfkf_eml_xger(int32_T eml_m, int32_T eml_n, int32_T eml_ix0, int32_T eml_iy0, real_T eml_A[100], int32_T eml_ia0)
+{
+int32_T eml_jA;
+int32_T eml_jy;
+int32_T eml_j;
+real_T eml_yjy;
+int32_T eml_ix;
+int32_T eml_loop_ub;
+int32_T eml_ijA;
+eml_jA = eml_ia0 - 1;
+eml_jy = eml_iy0;
+for(eml_j = 1; eml_j <= eml_n; eml_j++) {
+eml_yjy = eml_A[eml_jy - 1];
+if(eml_yjy != 0.0) {
+eml_yjy *= -1.0;
+eml_ix = eml_ix0;
+eml_loop_ub = eml_m + eml_jA;
+for(eml_ijA = 1 + eml_jA; eml_ijA <= eml_loop_ub; eml_ijA++) {
+eml_A[eml_ijA - 1] += eml_A[eml_ix - 1] * eml_yjy;
+eml_ix++;
+}
+}
+eml_jy += 10;
+eml_jA += 10;
+}
+}
+                    %<SFLibInsertUtilityFunction("refp5_mglfecbinohdlfkf_eml_xger")>
+                 %endif
+                 %if %<!SFLibLookupUtilityFunction("refp1_dbielngdlfcboppp_eml_xget")>
+                    void refp1_dbielngdlfcboppp_eml_xget(real_T eml_A[100], int32_T eml_ipiv[10], int32_T *eml_info)
+{
+int32_T eml_j;
+int32_T eml_mmj;
+int32_T eml_jj;
+int32_T eml_jp1j;
+int32_T eml_jpiv_offset;
+int32_T eml_jrow;
+for(eml_j = 0; eml_j < 10; eml_j++) {
+eml_ipiv[eml_j] = 1 + eml_j;
+}
+*eml_info = 0;
+for(eml_j = 0; eml_j < 9; eml_j++) {
+eml_mmj = 9 - eml_j;
+eml_jj = 1 + eml_j * 11;
+eml_jp1j = eml_jj + 1;
+eml_jpiv_offset = knopdjekjecjlnoh_eml_ixamax(eml_mmj + 1, eml_A, eml_jj, 1) - 1;
+if(eml_A[(eml_jj + eml_jpiv_offset) - 1] != 0.0) {
+if(eml_jpiv_offset != 0) {
+eml_ipiv[eml_j] = (eml_j + 1) + eml_jpiv_offset;
+eml_jrow = 1 + eml_j;
+refp1_ecbiphdbcbaijmoh_eml_xswa(eml_A, eml_jrow, eml_jrow + eml_jpiv_offset);
+}
+eml_jpiv_offset = eml_jp1j + (eml_mmj - 1);
+for(eml_jrow = eml_jp1j; eml_jrow <= eml_jpiv_offset; eml_jrow++) {
+eml_A[eml_jrow - 1] /= eml_A[eml_jj - 1];
+}
+} else {
+*eml_info = eml_j + 1;
+}
+refp5_mglfecbinohdlfkf_eml_xger(eml_mmj, 9 - eml_j, eml_jp1j, eml_jj + 10, eml_A, eml_jj + 11);
+}
+if((*eml_info == 0) && (!(eml_A[99] != 0.0))) {
+*eml_info = 10;
+}
+}
+                    %<SFLibInsertUtilityFunction("refp1_dbielngdlfcboppp_eml_xget")>
+                 %endif
+   %closefile chartFcnsBuf
+   %return chartFcnsBuf
+%endfunction %% ChartSharedFunctions
+%function Outputs(block,system) void
+   %openfile codeBuf
+    
+{
+int32_T eml_j;
+int32_T eml_mmj;
+real_T eml_y[100];
+real_T eml_x[100];
+int32_T eml_ipiv[10];
+int32_T eml_jj;
+int32_T eml_jp1j;
+int32_T eml_jpiv_offset;
+int32_T eml_jrow;
+int32_T eml_loop_ub;
+int32_T eml_i;
+int8_T eml_p[10];
+real_T eml_kk;
+real_T eml_a[10];
+real_T eml_y_0;
+real_T eml_dv0[40];
+real_T eml_hoistedExpr[40];
+real_T eml_P[16];
+real_T eml_hoistedExpr_0[10];
+real_T eml_d[4];
+real_T eml_lambda[4];
+int32_T eml_exitg1;
+real_T eml_lambda_p[4];
+real_T eml_a_0[4];
+/* %<SLibStateflowComment(block,"Embedded MATLAB Function","Controller/MATLAB Function","1")> */
+/* %<" eta=-omega\\f;"> */
+/* %<SLibStateflowComment(block,"","","1:5")> */
+for(eml_j = 0; eml_j < 10; eml_j++) {
+for(eml_mmj = 0; eml_mmj < 10; eml_mmj++) {
+eml_y[eml_mmj + 10 * eml_j] = 0.0;
+eml_x[eml_mmj + 10 * eml_j] = %<LibSFInputs(block, 0, "eml_mmj + 10 * eml_j")>;
+}
+eml_ipiv[eml_j] = 1 + eml_j;
+}
+for(eml_j = 0; eml_j < 9; eml_j++) {
+eml_mmj = 9 - eml_j;
+eml_jj = 1 + eml_j * 11;
+eml_jp1j = eml_jj + 1;
+eml_jpiv_offset = knopdjekjecjlnoh_eml_ixamax(eml_mmj + 1, eml_x, eml_jj, 1) - 1;
+if(eml_x[(eml_jj + eml_jpiv_offset) - 1] != 0.0) {
+if(eml_jpiv_offset != 0) {
+eml_ipiv[eml_j] = (eml_j + 1) + eml_jpiv_offset;
+eml_jrow = 1 + eml_j;
+refp1_ecbiphdbcbaijmoh_eml_xswa(eml_x, eml_jrow, eml_jrow + eml_jpiv_offset);
+}
+eml_loop_ub = eml_jp1j + (eml_mmj - 1);
+for(eml_i = eml_jp1j; eml_i <= eml_loop_ub; eml_i++) {
+eml_x[eml_i - 1] /= eml_x[eml_jj - 1];
+}
+}
+refp5_mglfecbinohdlfkf_eml_xger(eml_mmj, 9 - eml_j, eml_jp1j, eml_jj + 10, eml_x, eml_jj + 11);
+}
+for(eml_j = 0; eml_j < 10; eml_j++) {
+eml_p[eml_j] = (int8_T)(1 + eml_j);
+}
+for(eml_jpiv_offset = 0; eml_jpiv_offset < 10; eml_jpiv_offset++) {
+eml_jrow = eml_ipiv[eml_jpiv_offset];
+if(eml_jrow > eml_jpiv_offset + 1) {
+eml_loop_ub = (int32_T)eml_p[eml_jrow - 1];
+eml_p[eml_jrow - 1] = eml_p[eml_jpiv_offset];
+eml_p[eml_jpiv_offset] = (int8_T)eml_loop_ub;
+}
+}
+for(eml_jpiv_offset = 0; eml_jpiv_offset < 10; eml_jpiv_offset++) {
+eml_jrow = (int32_T)eml_p[eml_jpiv_offset];
+eml_y[eml_jpiv_offset + 10 * (eml_jrow - 1)] = 1.0;
+for(eml_loop_ub = eml_jpiv_offset + 1; eml_loop_ub < 11; eml_loop_ub++) {
+if(eml_y[(eml_loop_ub - 1) + 10 * (eml_jrow - 1)] != 0.0) {
+for(eml_i = eml_loop_ub + 1; eml_i < 11; eml_i++) {
+eml_y[(eml_i - 1) + 10 * (eml_jrow - 1)] -= eml_y[(eml_loop_ub - 1) + 10 * (eml_jrow - 1)] * eml_x[(eml_i - 1) + 10 * (eml_loop_ub - 1)];
+}
+}
+}
+}
+for(eml_jpiv_offset = 0; eml_jpiv_offset < 10; eml_jpiv_offset++) {
+eml_jrow = eml_jpiv_offset * 10;
+for(eml_loop_ub = 10; eml_loop_ub > 0; eml_loop_ub += -1) {
+eml_i = (eml_loop_ub - 1) * 10;
+if(eml_y[(eml_loop_ub + eml_jrow) - 1] != 0.0) {
+eml_y[(eml_loop_ub + eml_jrow) - 1] /= eml_x[(eml_loop_ub + eml_i) - 1];
+eml_j = eml_loop_ub - 1;
+for(eml_mmj = 1; eml_mmj <= eml_j; eml_mmj++) {
+eml_y[(eml_mmj + eml_jrow) - 1] -= eml_y[(eml_loop_ub + eml_jrow) - 1] * eml_x[(eml_mmj + eml_i) - 1];
+}
+}
+}
+}
+for(eml_j = 0; eml_j < 10; eml_j++) {
+for(eml_mmj = 0; eml_mmj < 10; eml_mmj++) {
+eml_x[eml_mmj + 10 * eml_j] = -eml_y[eml_mmj + 10 * eml_j];
+}
+}
+for(eml_j = 0; eml_j < 10; eml_j++) {
+%<LibSFAssignOutput(block, 1, "eml_j", "0.0")>
+for(eml_mmj = 0; eml_mmj < 10; eml_mmj++) {
+%<LibSFAssignOutput(block, 1, "eml_j", "%<LibSFOutput(block, 1, "eml_j")> + eml_x[eml_j + 10 * eml_mmj] * %<LibSFInputs(block, 1, "eml_mmj")>")>
+}
+}
+/* %<SLibStateflowComment(block,"","","1:6")> */
+eml_kk = 0.0;
+for(eml_jpiv_offset = 0; eml_jpiv_offset < 4; eml_jpiv_offset++) {
+/* %<SLibStateflowComment(block,"","","1:7")> */
+for(eml_j = 0; eml_j < 10; eml_j++) {
+eml_a[eml_j] = %<LibSFInputs(block, 2, "eml_jpiv_offset + (eml_j << 2)")>;
+}
+eml_y_0 = 0.0;
+for(eml_jrow = 0; eml_jrow < 10; eml_jrow++) {
+eml_y_0 += eml_a[eml_jrow] * %<LibSFOutput(block, 1, "eml_jrow")>;
+}
+if(eml_y_0 > %<LibSFInputs(block, 3, "eml_jpiv_offset")>) {
+/* %<SLibStateflowComment(block,"","","1:8")> */
+/* %<SLibStateflowComment(block,"","","1:9")> */
+eml_kk++;
+} else {
+/* %<SLibStateflowComment(block,"","","1:11")> */
+}
+}
+if(!(eml_kk == 0.0)) {
+/* %<SLibStateflowComment(block,"","","1:17")> */
+for(eml_j = 0; eml_j < 4; eml_j++) {
+for(eml_mmj = 0; eml_mmj < 10; eml_mmj++) {
+eml_dv0[eml_mmj + 10 * eml_j] = %<LibSFInputs(block, 2, "eml_j + (eml_mmj << 2)")>;
+}
+}
+nglfaaiedbaiecba_mldivide(%<LibSFInputArray(block, 0, 0)>, eml_dv0, eml_hoistedExpr);
+for(eml_j = 0; eml_j < 4; eml_j++) {
+for(eml_mmj = 0; eml_mmj < 4; eml_mmj++) {
+eml_P[eml_j + (eml_mmj << 2)] = 0.0;
+for(eml_jj = 0; eml_jj < 10; eml_jj++) {
+eml_P[eml_j + (eml_mmj << 2)] += %<LibSFInputs(block, 2, "eml_j + (eml_jj << 2)")> * eml_hoistedExpr[eml_jj + 10 * eml_mmj];
+}
+}
+}
+/* %<SLibStateflowComment(block,"","","1:18")> */
+nglnohdbopphdjmg_mldivide(%<LibSFInputArray(block, 0, 0)>, %<LibSFInputArray(block, 1, 0)>, eml_hoistedExpr_0);
+for(eml_j = 0; eml_j < 4; eml_j++) {
+eml_kk = 0.0;
+for(eml_mmj = 0; eml_mmj < 10; eml_mmj++) {
+eml_kk += %<LibSFInputs(block, 2, "eml_j + (eml_mmj << 2)")> * eml_hoistedExpr_0[eml_mmj];
+}
+eml_d[eml_j] = eml_kk + %<LibSFInputs(block, 3, "eml_j")>;
+}
+/* %<SLibStateflowComment(block,"","","1:20")> */
+/* %<SLibStateflowComment(block,"","","1:21")> */
+for(eml_j = 0; eml_j < 4; eml_j++) {
+eml_lambda[eml_j] = 0.0;
+}
+/* %<" al=10;"> */
+eml_loop_ub = 1;
+eml_exitg1 = 0U;
+while((eml_exitg1 == 0U) && (eml_loop_ub <= 38)) {
+/* %<SLibStateflowComment(block,"","","1:23")> */
+/* %<"find tomegae elements in tomegae solution vector one by one"> */
+/* %<" km could be larger if tomegae Lagranger multiplier omegaas a slow"> */
+/* %<" convergence rate."> */
+/* %<SLibStateflowComment(block,"","","1:28")> */
+for(eml_j = 0; eml_j < 4; eml_j++) {
+eml_lambda_p[eml_j] = eml_lambda[eml_j];
+}
+for(eml_jpiv_offset = 0; eml_jpiv_offset < 4; eml_jpiv_offset++) {
+/* %<SLibStateflowComment(block,"","","1:29")> */
+/* %<SLibStateflowComment(block,"","","1:30")> */
+for(eml_j = 0; eml_j < 4; eml_j++) {
+eml_a_0[eml_j] = eml_P[eml_jpiv_offset + (eml_j << 2)];
+}
+eml_kk = 0.0;
+for(eml_jrow = 0; eml_jrow < 4; eml_jrow++) {
+eml_kk += eml_a_0[eml_jrow] * eml_lambda[eml_jrow];
+}
+/* %<SLibStateflowComment(block,"","","1:31")> */
+/* %<SLibStateflowComment(block,"","","1:32")> */
+eml_kk = (-((eml_kk - eml_P[eml_jpiv_offset + (eml_jpiv_offset << 2)] * eml_lambda[eml_jpiv_offset]) + eml_d[eml_jpiv_offset])) / eml_P[eml_jpiv_offset + (eml_jpiv_offset << 2)];
+/* %<SLibStateflowComment(block,"","","1:33")> */
+if((0.0 >= eml_kk) || ((boolean_T)rtIsNaN(eml_kk))) {
+eml_kk = 0.0;
+}
+eml_lambda[eml_jpiv_offset] = eml_kk;
+}
+/* %<SLibStateflowComment(block,"","","1:36")> */
+for(eml_j = 0; eml_j < 4; eml_j++) {
+eml_kk = eml_lambda_p[eml_j];
+eml_a_0[eml_j] = eml_lambda[eml_j] - eml_kk;
+eml_kk = eml_lambda[eml_j] - eml_kk;
+eml_lambda_p[eml_j] = eml_kk;
+}
+eml_kk = 0.0;
+for(eml_jpiv_offset = 0; eml_jpiv_offset < 4; eml_jpiv_offset++) {
+eml_kk += eml_a_0[eml_jpiv_offset] * eml_lambda_p[eml_jpiv_offset];
+}
+if(eml_kk < 1.0E-007) {
+/* %<SLibStateflowComment(block,"","","1:37")> */
+eml_exitg1 = 1U;
+} else {
+eml_loop_ub++;
+}
+}
+/* %<SLibStateflowComment(block,"","","1:41")> */
+for(eml_j = 0; eml_j < 10; eml_j++) {
+for(eml_mmj = 0; eml_mmj < 10; eml_mmj++) {
+eml_x[eml_mmj + 10 * eml_j] = -%<LibSFInputs(block, 0, "eml_mmj + 10 * eml_j")>;
+}
+}
+nglnohdbopphdjmg_mldivide(eml_x, %<LibSFInputArray(block, 1, 0)>, eml_hoistedExpr_0);
+for(eml_j = 0; eml_j < 4; eml_j++) {
+for(eml_mmj = 0; eml_mmj < 10; eml_mmj++) {
+eml_dv0[eml_mmj + 10 * eml_j] = %<LibSFInputs(block, 2, "eml_j + (eml_mmj << 2)")>;
+}
+}
+nglfaaiedbaiecba_mldivide(%<LibSFInputArray(block, 0, 0)>, eml_dv0, eml_hoistedExpr);
+for(eml_j = 0; eml_j < 10; eml_j++) {
+eml_kk = 0.0;
+for(eml_mmj = 0; eml_mmj < 4; eml_mmj++) {
+eml_kk += eml_hoistedExpr[eml_j + 10 * eml_mmj] * eml_lambda[eml_mmj];
+}
+%<LibSFAssignOutput(block, 1, "eml_j", "eml_hoistedExpr_0[eml_j] - eml_kk")>
+}
+} else {
+/* %<SLibStateflowComment(block,"","","1:14")> */
+}
+}
+   %closefile codeBuf
+   %return codeBuf
+%endfunction  %% Outputs
+%function InlinedInitializerCode(block,system) Output
+   %<SLibResetSFChartInstanceAccessed(block)>\
+   %openfile initBodyBuf
+      
+   %closefile initBodyBuf
+   %if !WHITE_SPACE(initBodyBuf)
+      /* Initialize code for chart: '%<LibGetBlockName(block)>' */
+      %<initBodyBuf>\
+   %endif
+%endfunction
+
+
+%function EnableUnboundOutputEventsCode(block,system) Output
+   %openfile initBodyBuf
+      
+   %closefile initBodyBuf
+   %if !WHITE_SPACE(initBodyBuf)
+      /* Enable code for chart: '%<LibGetBlockName(block)>' */
+      %<initBodyBuf>\
+   %endif
+%endfunction
+
+%function DisableUnboundOutputEventsCode(block,system) Output
+   %openfile initBodyBuf
+      
+   %closefile initBodyBuf
+   %if !WHITE_SPACE(initBodyBuf)
+      /* Disable code for chart: '%<LibGetBlockName(block)>' */
+      %<initBodyBuf>\
+   %endif
+%endfunction
+
+%function DumpSharedUtils(block,system) void
+%endfunction
+
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   0 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

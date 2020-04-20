@@ -1,0 +1,285 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDefines(block,system) void
+   %openfile chartConstBuf
+   %closefile chartConstBuf
+   %return chartConstBuf
+%endfunction %% ChartDefines
+%function ChartFunctions(block,system) void
+   %openfile chartFcnsBuf
+     %assign junkVal = LibGenMathFcnCall("abs",FcnGetDataTypeIdFromName("double"),"0.0","")
+            
+            
+            
+   %closefile chartFcnsBuf
+   %return chartFcnsBuf
+%endfunction %% ChartFunctions
+%function ChartFunctionProtos(block,system,oFile) void
+   %openfile prototypesBuf
+   %closefile prototypesBuf
+   %<SLibSetModelFileAttribute(oFile,"FcnPrototypes",prototypesBuf)>
+%endfunction %% ChartFunctionProtos
+%function ChartSharedFunctions(block,system) void
+   %openfile chartFcnsBuf
+                 %if %<!SFLibLookupUtilityFunction("jeknbaaaecbalfkf_mrdivide")>
+                    void jeknbaaaecbalfkf_mrdivide(real_T eml_A[6], real_T eml_B[36], real_T eml_y[6])
+{
+int32_T eml_j;
+int32_T eml_mmj;
+real_T eml_A_0[36];
+int8_T eml_ipiv[6];
+int32_T eml_jj;
+int32_T eml_jp1j;
+int32_T eml_n;
+int32_T eml_a;
+int32_T eml_ix;
+real_T eml_smax;
+int32_T eml_k;
+real_T eml_x;
+int32_T eml_n_0;
+int32_T eml_jA;
+real_T eml_Y[6];
+for(eml_j = 0; eml_j < 6; eml_j++) {
+for(eml_mmj = 0; eml_mmj < 6; eml_mmj++) {
+eml_A_0[eml_mmj + 6 * eml_j] = eml_B[eml_j + 6 * eml_mmj];
+}
+eml_ipiv[eml_j] = (int8_T)(1 + eml_j);
+}
+for(eml_j = 0; eml_j < 5; eml_j++) {
+eml_mmj = 5 - eml_j;
+eml_jj = 1 + eml_j * 7;
+eml_jp1j = eml_jj + 1;
+eml_n = eml_mmj + 1;
+eml_a = 1;
+eml_ix = eml_jj;
+eml_smax = fabs(eml_A_0[eml_jj - 1]);
+for(eml_k = 2; eml_k <= eml_n; eml_k++) {
+eml_ix++;
+eml_x = fabs(eml_A_0[eml_ix - 1]);
+if(eml_x > eml_smax) {
+eml_a = eml_k;
+eml_smax = eml_x;
+}
+}
+eml_n = eml_a - 1;
+if(eml_A_0[(eml_jj + eml_n) - 1] != 0.0) {
+if(eml_n != 0) {
+eml_ipiv[eml_j] = (int8_T)((eml_j + 1) + eml_n);
+eml_a = 1 + eml_j;
+eml_k = eml_a + eml_n;
+for(eml_n = 0; eml_n < 6; eml_n++) {
+eml_x = eml_A_0[eml_a - 1];
+eml_A_0[eml_a - 1] = eml_A_0[eml_k - 1];
+eml_A_0[eml_k - 1] = eml_x;
+eml_k += 6;
+eml_a += 6;
+}
+}
+eml_a = eml_jp1j + (eml_mmj - 1);
+for(eml_ix = eml_jp1j; eml_ix <= eml_a; eml_ix++) {
+eml_A_0[eml_ix - 1] /= eml_A_0[eml_jj - 1];
+}
+}
+eml_n_0 = 5 - eml_j;
+eml_jA = eml_jj + 6;
+eml_n = eml_jj + 6;
+for(eml_a = 1; eml_a <= eml_n_0; eml_a++) {
+eml_x = eml_A_0[eml_n - 1];
+if(eml_x != 0.0) {
+eml_x *= -1.0;
+eml_ix = eml_jp1j;
+eml_k = eml_mmj + eml_jA;
+for(eml_jj = 1 + eml_jA; eml_jj <= eml_k; eml_jj++) {
+eml_A_0[eml_jj - 1] += eml_A_0[eml_ix - 1] * eml_x;
+eml_ix++;
+}
+}
+eml_n += 6;
+eml_jA += 6;
+}
+}
+for(eml_j = 0; eml_j < 6; eml_j++) {
+eml_Y[eml_j] = eml_A[eml_j];
+}
+for(eml_n = 0; eml_n < 6; eml_n++) {
+if(eml_ipiv[eml_n] != eml_n + 1) {
+eml_a = (int32_T)eml_ipiv[eml_n];
+eml_x = eml_Y[eml_n];
+eml_Y[eml_n] = eml_Y[eml_a - 1];
+eml_Y[eml_a - 1] = eml_x;
+}
+}
+for(eml_n = 0; eml_n < 6; eml_n++) {
+eml_a = eml_n * 6;
+if(eml_Y[eml_n] != 0.0) {
+for(eml_ix = eml_n + 2; eml_ix <= 6; eml_ix++) {
+eml_Y[eml_ix - 1] -= eml_Y[eml_n] * eml_A_0[(eml_ix + eml_a) - 1];
+}
+}
+}
+for(eml_n = 6; eml_n > 0; eml_n += -1) {
+eml_a = (eml_n - 1) * 6;
+if(eml_Y[eml_n - 1] != 0.0) {
+eml_Y[eml_n - 1] /= eml_A_0[(eml_n + eml_a) - 1];
+eml_ix = eml_n - 1;
+for(eml_k = 1; eml_k <= eml_ix; eml_k++) {
+eml_Y[eml_k - 1] -= eml_Y[eml_n - 1] * eml_A_0[(eml_k + eml_a) - 1];
+}
+}
+}
+for(eml_j = 0; eml_j < 6; eml_j++) {
+eml_y[eml_j] = eml_Y[eml_j];
+}
+}
+                    %<SFLibInsertUtilityFunction("jeknbaaaecbalfkf_mrdivide")>
+                 %endif
+   %closefile chartFcnsBuf
+   %return chartFcnsBuf
+%endfunction %% ChartSharedFunctions
+%function Outputs(block,system) void
+   %openfile codeBuf
+    
+{
+int32_T eml_k;
+real_T eml_a[6];
+int32_T eml_i0;
+real_T eml_dv0[36];
+real_T eml_Ks[6];
+real_T eml_b[6];
+real_T eml_y;
+real_T eml_y_0;
+real_T eml_y_1;
+/* %<SLibStateflowComment(block,"Embedded MATLAB Function","Controller/Recursive LS_all/MATLAB Function1","1")> */
+if(%<LibSFInputs(block, 0, 0)> == 1.0) {
+/* %<SLibStateflowComment(block,"","","1:3")> */
+/* %<SLibStateflowComment(block,"","","1:5")> */
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_a[eml_k] = %<LibSFInputs(block, 2, 0)> * %<LibSFInputs(block, 1, "eml_k")>;
+}
+for(eml_k = 0; eml_k < 6; eml_k++) {
+for(eml_i0 = 0; eml_i0 < 6; eml_i0++) {
+eml_dv0[eml_i0 + 6 * eml_k] = %<LibSFInputs(block, 1, "eml_i0")> * %<LibSFInputs(block, 2, 0)> * %<LibSFInputs(block, 1, "eml_k")> + %<LibSFInputs(block, 4, 0)>;
+}
+}
+jeknbaaaecbalfkf_mrdivide(eml_a, eml_dv0, eml_Ks);
+/* %<SLibStateflowComment(block,"","","1:6")> */
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_b[eml_k] = %<LibSFInputs(block, 6, "eml_k")> - %<LibSFInputs(block, 1, "eml_k")> * %<LibSFInputs(block, 5, 0)>;
+}
+eml_y = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y += eml_Ks[eml_k] * eml_b[eml_k];
+}
+%<LibSFAssignOutput(block, 1, "0", "%<LibSFInputs(block, 5, 0)> + eml_y")>
+/* %<SLibStateflowComment(block,"","","1:7")> */
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_a[eml_k] = eml_Ks[eml_k] * %<LibSFInputs(block, 4, 0)>;
+eml_b[eml_k] = eml_Ks[eml_k];
+}
+eml_y = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y += eml_a[eml_k] * eml_b[eml_k];
+}
+eml_y_0 = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y_0 += eml_Ks[eml_k] * %<LibSFInputs(block, 1, "eml_k")>;
+}
+eml_y_1 = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y_1 += eml_Ks[eml_k] * %<LibSFInputs(block, 1, "eml_k")>;
+}
+%<LibSFAssignOutput(block, 2, "0", "(1.0 - eml_y_0) * %<LibSFInputs(block, 2, 0)> * (1.0 - eml_y_1) + eml_y")>
+} else {
+/* %<SLibStateflowComment(block,"","","1:10")> */
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_a[eml_k] = %<LibSFInputs(block, 3, 0)> * %<LibSFInputs(block, 1, "eml_k")>;
+}
+for(eml_k = 0; eml_k < 6; eml_k++) {
+for(eml_i0 = 0; eml_i0 < 6; eml_i0++) {
+eml_dv0[eml_i0 + 6 * eml_k] = %<LibSFInputs(block, 1, "eml_i0")> * %<LibSFInputs(block, 3, 0)> * %<LibSFInputs(block, 1, "eml_k")> + %<LibSFInputs(block, 4, 0)>;
+}
+}
+jeknbaaaecbalfkf_mrdivide(eml_a, eml_dv0, eml_Ks);
+/* %<SLibStateflowComment(block,"","","1:11")> */
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_b[eml_k] = %<LibSFInputs(block, 6, "eml_k")> - %<LibSFInputs(block, 1, "eml_k")> * %<LibSFInputs(block, 5, 0)>;
+}
+eml_y = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y += eml_Ks[eml_k] * eml_b[eml_k];
+}
+%<LibSFAssignOutput(block, 1, "0", "%<LibSFInputs(block, 5, 0)> + eml_y")>
+/* %<SLibStateflowComment(block,"","","1:12")> */
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_a[eml_k] = eml_Ks[eml_k] * %<LibSFInputs(block, 4, 0)>;
+eml_b[eml_k] = eml_Ks[eml_k];
+}
+eml_y = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y += eml_a[eml_k] * eml_b[eml_k];
+}
+eml_y_0 = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y_0 += eml_Ks[eml_k] * %<LibSFInputs(block, 1, "eml_k")>;
+}
+eml_y_1 = 0.0;
+for(eml_k = 0; eml_k < 6; eml_k++) {
+eml_y_1 += eml_Ks[eml_k] * %<LibSFInputs(block, 1, "eml_k")>;
+}
+%<LibSFAssignOutput(block, 2, "0", "(1.0 - eml_y_0) * %<LibSFInputs(block, 3, 0)> * (1.0 - eml_y_1) + eml_y")>
+}
+}
+   %closefile codeBuf
+   %return codeBuf
+%endfunction  %% Outputs
+%function InlinedInitializerCode(block,system) Output
+   %<SLibResetSFChartInstanceAccessed(block)>\
+   %openfile initBodyBuf
+      
+   %closefile initBodyBuf
+   %if !WHITE_SPACE(initBodyBuf)
+      /* Initialize code for chart: '%<LibGetBlockName(block)>' */
+      %<initBodyBuf>\
+   %endif
+%endfunction
+
+
+%function EnableUnboundOutputEventsCode(block,system) Output
+   %openfile initBodyBuf
+      
+   %closefile initBodyBuf
+   %if !WHITE_SPACE(initBodyBuf)
+      /* Enable code for chart: '%<LibGetBlockName(block)>' */
+      %<initBodyBuf>\
+   %endif
+%endfunction
+
+%function DisableUnboundOutputEventsCode(block,system) Output
+   %openfile initBodyBuf
+      
+   %closefile initBodyBuf
+   %if !WHITE_SPACE(initBodyBuf)
+      /* Disable code for chart: '%<LibGetBlockName(block)>' */
+      %<initBodyBuf>\
+   %endif
+%endfunction
+
+%function DumpSharedUtils(block,system) void
+%endfunction
+
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   0 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

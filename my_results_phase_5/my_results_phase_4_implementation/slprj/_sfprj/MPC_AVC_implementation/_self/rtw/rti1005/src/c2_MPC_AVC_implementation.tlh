@@ -1,0 +1,83 @@
+
+%implements "chartHeader" "C"
+%function CacheOutputs(block,system,modelHFile,typeDefHFile,privateHFile,cFile) void
+%openfile typedefsBuf
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+%closefile typedefsBuf
+   %if !WHITE_SPACE(typedefsBuf)
+      %openfile tempBuf
+#ifndef _CSC2_MPC_AVC_IMPLEMENTATION_CHA
+#define _CSC2_MPC_AVC_IMPLEMENTATION_CHA
+      %<typedefsBuf>\
+ #endif /* _CSC2_MPC_AVC_IMPLEMENTATION_CHA */
+      %closefile tempBuf
+%<SLibSetModelFileAttribute(typeDefHFile,"Typedefs",tempBuf)>
+   %endif
+
+%openfile typedefsBuf
+%closefile typedefsBuf
+   %if !WHITE_SPACE(typedefsBuf)
+      %openfile tempBuf
+#ifndef _CSC2_MPC_AVC_IMPLEMENTATION_CHA_custom
+#define _CSC2_MPC_AVC_IMPLEMENTATION_CHA_custom
+      %<typedefsBuf>\
+ #endif /* _CSC2_MPC_AVC_IMPLEMENTATION_CHA_custom */
+      %closefile tempBuf
+%<SLibSetModelFileAttribute(modelHFile,"Typedefs",tempBuf)>
+   %endif
+
+%openfile externFcnsBuf
+   
+   
+   
+   
+%closefile externFcnsBuf
+%<SLibSetModelFileAttribute(privateHFile,"ExternFcns",externFcnsBuf)>
+   %openfile externFcnsBuf
+         %if %<!SFLibLookupUtilityFunctionDecl("knopdjekjecjlnoh_eml_ixamax")>
+            int32_T knopdjekjecjlnoh_eml_ixamax(int32_T eml_n, real_T eml_x[100], int32_T eml_ix0, int32_T eml_incx);
+            %<SFLibInsertUtilityFunctionDecl("knopdjekjecjlnoh_eml_ixamax")>
+         %endif
+         %if %<!SFLibLookupUtilityFunctionDecl("nglfaaiedbaiecba_mldivide")>
+            void nglfaaiedbaiecba_mldivide(real_T eml_A[100], real_T eml_B[40], real_T eml_Y[40]);
+            %<SFLibInsertUtilityFunctionDecl("nglfaaiedbaiecba_mldivide")>
+         %endif
+         %if %<!SFLibLookupUtilityFunctionDecl("nglnohdbopphdjmg_mldivide")>
+            void nglnohdbopphdjmg_mldivide(real_T eml_A[100], real_T eml_B[10], real_T eml_Y[10]);
+            %<SFLibInsertUtilityFunctionDecl("nglnohdbopphdjmg_mldivide")>
+         %endif
+         %if %<!SFLibLookupUtilityFunctionDecl("refp1_ecbiphdbcbaijmoh_eml_xswa")>
+            void refp1_ecbiphdbcbaijmoh_eml_xswa(real_T eml_x[100], int32_T eml_ix0, int32_T eml_iy0);
+            %<SFLibInsertUtilityFunctionDecl("refp1_ecbiphdbcbaijmoh_eml_xswa")>
+         %endif
+         %if %<!SFLibLookupUtilityFunctionDecl("refp5_mglfecbinohdlfkf_eml_xger")>
+            void refp5_mglfecbinohdlfkf_eml_xger(int32_T eml_m, int32_T eml_n, int32_T eml_ix0, int32_T eml_iy0, real_T eml_A[100], int32_T eml_ia0);
+            %<SFLibInsertUtilityFunctionDecl("refp5_mglfecbinohdlfkf_eml_xger")>
+         %endif
+         %if %<!SFLibLookupUtilityFunctionDecl("refp1_dbielngdlfcboppp_eml_xget")>
+            void refp1_dbielngdlfcboppp_eml_xget(real_T eml_A[100], int32_T eml_ipiv[10], int32_T *eml_info);
+            %<SFLibInsertUtilityFunctionDecl("refp1_dbielngdlfcboppp_eml_xget")>
+         %endif
+   %closefile externFcnsBuf
+   %<SLibSetModelFileAttribute(privateHFile,"ExternFcns",externFcnsBuf)>
+
+%endfunction %% CacheOutputs

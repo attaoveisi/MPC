@@ -1,0 +1,115 @@
+;*************************************************************************
+;  dSPACE MCCPPC Default Linker Command File for DS1005 Processor Board
+;*************************************************************************
+
+LISTMAP PUBLICS,NOLOCALS,CROSSREFS
+PUBLIC DS_PPC_BOARD = 1005
+
+;*************************************************************************
+; Specify starting address
+;*************************************************************************
+EXTERN  _ds1005_reset
+START   _ds1005_reset
+
+;*************************************************************************
+; These sizes can be changed but its not recommend to do that
+; because performance of the system possibly is decreased then.
+;*************************************************************************
+PUBLIC MIN_HEAP_SIZE    = 0x00070000
+PUBLIC STACK_SIZE       = 0x00080000
+PUBLIC MIN_HOSTMEM_SIZE = 0x01000000
+
+;*************************************************************************
+; This size must not be changed !!!
+; It is reserved for internal use of the RTLib.
+;*************************************************************************
+PUBLIC DS_HEAP_SIZE     = 0x00010000
+PUBLIC CONFIG_SIZE      = 0x00040000
+
+;*************************************************************************
+; Select the sqrt function to use
+;*************************************************************************
+;PUBLIC  sqrt = sqrt_KF
+
+;*************************************************************************
+; Select a more effient heap library (dlmalloc)
+;*************************************************************************
+PUBLIC  malloc = dlmalloc
+PUBLIC  free = dlfree
+PUBLIC  calloc = dlcalloc
+PUBLIC  zalloc = dlcalloc
+PUBLIC  realloc = dlrealloc
+
+;*************************************************************************
+; MEMORY MAPPING :  do not change anything in the following !!!
+;*************************************************************************
+ALIGN = 4
+;-------------------------------------------------------------------------
+; physical memory
+;-------------------------------------------------------------------------
+ORDER   except_tbl=0x0
+ORDER   startup
+ORDER   .text
+ORDER	  .init
+ORDER	  initdat
+ORDER	  .rodata
+ORDER	  .rodata1
+ORDER   .data
+ORDER   ioports
+ORDER   SYSHOST
+ORDER   .PPC.EMB.procflags
+ORDER   .bss
+
+;-------------------------------------------------------------------------
+; section for calibrated parameter set
+;-------------------------------------------------------------------------
+ORDER   calibrated_parameter_section
+
+
+;-------------------------------------------------------------------------
+; forbidden memory
+;-------------------------------------------------------------------------
+RESADD  0x08000000, 0x27FEFFFF
+
+;-------------------------------------------------------------------------
+; mirrored memory
+;-------------------------------------------------------------------------
+ORDER   config_sect = 0x27FF0000
+
+;-------------------------------------------------------------------------
+; forbidden memory
+;-------------------------------------------------------------------------
+RESADD  0x28000000, 0x2FFFFFFF
+
+;-------------------------------------------------------------------------
+; imaginary memory (for slave data only)
+;-------------------------------------------------------------------------
+ORDER   SlvFwSection = 0x30000000
+
+;-------------------------------------------------------------------------
+; forbidden memory
+;-------------------------------------------------------------------------
+RESADD  0x38000000, 0xFFFFFFFE
+
+
+LOAD MPC_AVC_implementation.o50
+LOAD MPC_AVC_implementation_data.o50
+LOAD MPC_AVC_implementation_trc_ptr.o50
+LOAD rt_matmultrr_dbl.o50
+LOAD rt_nonfinite.o50
+LOAD rti_sim_engine.o50
+LOAD rti_init_c.o50
+LOAD rt_sim.o50
+LOAD rti_assert.o50
+LOAD rti_siggen_main.o50
+LOAD rti_siggen_sin.o50
+LOAD rti_siggen_sqr.o50
+LOAD rti_siggen_saw.o50
+LOAD rti_siggen_tri.o50
+LOAD rti_siggen_nois.o50
+LOAD "C:\dSPACE\DS1005\RTPython\dsrtt1005.lib"
+LOAD C:\dSPACE\DS1005\RTKernel\rtk1005.lib
+LOAD C:\dSPACE\DS1005\RTLib\ds1005.lib
+LOAD C:\PPCTools33\LIB\mppc_b.lib
+LOAD C:\PPCTools33\LIB\mppchb.lib
+ 

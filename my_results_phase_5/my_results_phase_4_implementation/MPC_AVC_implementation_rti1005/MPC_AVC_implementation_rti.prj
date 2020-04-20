@@ -1,0 +1,23 @@
+Real-Time Interface project marker file.
+
+BuildDir:           yes
+Model:              MPC_AVC_implementation
+TMF:                C:\dSPACE\matlab\rti1005\m\rti1005.tmf
+MATLAB:             7.6.0.324 (R2008a)
+Simulink:           Simulink 7.1 (R2008a) 23-Jan-2008
+SimStruct:          17-Jan-2008 15:20:52
+RTW:                Real-Time Workshop 7.1 (R2008a) 23-Jan-2008
+RTI:                RTI1005 6.2 (14-Nov-2008)
+RTI-MP:             n.a.
+RTICAN:             n.a.
+RTICANMM:           n.a.
+RTI4301:            n.a.
+RTILIN:             n.a.
+RTILINMM:           n.a.
+RTIBYPASS1:         n.a.
+RTIBYPASS:          n.a.
+RTIFLEXRAY:         n.a.
+RTIFLEXRAYCONFIG:   n.a.
+RTIRPCU:            n.a.
+MDBS:               1.3.11 (14-Nov-2008)
+TALIB:              n.a.

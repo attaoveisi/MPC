@@ -1,0 +1,43 @@
+CC     = "c:\program files\matlab\r2008a\sys\lcc\bin\lcc.exe"
+LD     = "c:\program files\matlab\r2008a\sys\lcc\bin\lcclnk.exe"
+LIBCMD = "c:\program files\matlab\r2008a\sys\lcc\bin\lcclib.exe"
+CFLAGS = -c -Zp8 -DMATLAB_MEX_FILE -noregistrylookup
+LDFLAGS = -s -dll -L"c:\program files\matlab\r2008a\sys\lcc\lib"
+LIBFLAGS = 
+
+OBJECTS = \
+	"MPC_AVC_implementation_sfun.obj"\
+	"MPC_AVC_implementation_sfun_registry.obj"\
+	"c2_MPC_AVC_implementation.obj"\
+	"c3_MPC_AVC_implementation.obj"\
+	"c4_MPC_AVC_implementation.obj"\
+	"c5_MPC_AVC_implementation.obj"\
+	"lccstub.obj"\
+	"c:\program files\matlab\r2008a\sys\lcc\mex\lccdef.def"\
+	"c:\program files\matlab\r2008a\stateflow\c\debugger\lib\win32\sfc_debuglcc.lib"\
+	"c:\program files\matlab\r2008a\stateflow\c\mex\lib\win32\sfc_mexlcc.lib"\
+	"c:\program files\matlab\r2008a\extern\lib\win32\lcc\libmex.lib"\
+	"c:\program files\matlab\r2008a\extern\lib\win32\lcc\libmx.lib"\
+	"c:\program files\matlab\r2008a\extern\lib\win32\lcc\libfixedpoint.lib"\
+	"c:\program files\matlab\r2008a\extern\lib\win32\lcc\libut.lib"\
+	"c:\program files\matlab\r2008a\toolbox\dspblks\lib\win32\dsp_dyn_rt_lcc.lib"\
+
+INCLUDE_PATH= -I"c:\program files\matlab\r2008a\sys\lcc\include"  -I"c:\program files\matlab\r2008a\extern\include"  -I"c:\program files\matlab\r2008a\simulink\include"  -I"c:\program files\matlab\r2008a\stateflow\c\mex\include"  -I"c:\program files\matlab\r2008a\stateflow\c\debugger\include"  -I"c:\program files\matlab\r2008a\toolbox\eml\lib\dsp"  -I"d:\oveisi\model_predictive_control\my_results_phase_4_implementation\slprj\_sfprj\mpc_avc_implementation\_self\sfun\src"  -I"d:\oveisi\model_predictive_control\my_results_phase_4_implementation" 
+ 
+
+MPC_AVC_implementation_sfun.mexw32 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o MPC_AVC_implementation_sfun.mexw32 @MPC_AVC_implementation_sfun.lmko
+MPC_AVC_implementation_sfun.obj :	"MPC_AVC_implementation_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "MPC_AVC_implementation_sfun.c"
+MPC_AVC_implementation_sfun_registry.obj :	"MPC_AVC_implementation_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "MPC_AVC_implementation_sfun_registry.c"
+c2_MPC_AVC_implementation.obj :	"c2_MPC_AVC_implementation.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_MPC_AVC_implementation.c"
+c3_MPC_AVC_implementation.obj :	"c3_MPC_AVC_implementation.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_MPC_AVC_implementation.c"
+c4_MPC_AVC_implementation.obj :	"c4_MPC_AVC_implementation.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_MPC_AVC_implementation.c"
+c5_MPC_AVC_implementation.obj :	"c5_MPC_AVC_implementation.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_MPC_AVC_implementation.c"
+lccstub.obj :	"c:\program files\matlab\r2008a\sys\lcc\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c:\program files\matlab\r2008a\sys\lcc\mex\lccstub.c"

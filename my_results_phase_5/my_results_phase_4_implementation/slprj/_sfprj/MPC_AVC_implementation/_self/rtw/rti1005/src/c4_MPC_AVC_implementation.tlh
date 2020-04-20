@@ -1,0 +1,40 @@
+
+%implements "chartHeader" "C"
+%function CacheOutputs(block,system,modelHFile,typeDefHFile,privateHFile,cFile) void
+%openfile typedefsBuf
+            
+%closefile typedefsBuf
+   %if !WHITE_SPACE(typedefsBuf)
+      %openfile tempBuf
+#ifndef _CSC4_MPC_AVC_IMPLEMENTATION_CHA
+#define _CSC4_MPC_AVC_IMPLEMENTATION_CHA
+      %<typedefsBuf>\
+ #endif /* _CSC4_MPC_AVC_IMPLEMENTATION_CHA */
+      %closefile tempBuf
+%<SLibSetModelFileAttribute(typeDefHFile,"Typedefs",tempBuf)>
+   %endif
+
+%openfile typedefsBuf
+%closefile typedefsBuf
+   %if !WHITE_SPACE(typedefsBuf)
+      %openfile tempBuf
+#ifndef _CSC4_MPC_AVC_IMPLEMENTATION_CHA_custom
+#define _CSC4_MPC_AVC_IMPLEMENTATION_CHA_custom
+      %<typedefsBuf>\
+ #endif /* _CSC4_MPC_AVC_IMPLEMENTATION_CHA_custom */
+      %closefile tempBuf
+%<SLibSetModelFileAttribute(modelHFile,"Typedefs",tempBuf)>
+   %endif
+
+%openfile externFcnsBuf
+   
+   
+   
+   
+%closefile externFcnsBuf
+%<SLibSetModelFileAttribute(privateHFile,"ExternFcns",externFcnsBuf)>
+   %openfile externFcnsBuf
+   %closefile externFcnsBuf
+   %<SLibSetModelFileAttribute(privateHFile,"ExternFcns",externFcnsBuf)>
+
+%endfunction %% CacheOutputs

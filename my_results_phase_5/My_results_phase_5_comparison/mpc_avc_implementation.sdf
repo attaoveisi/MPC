@@ -1,0 +1,12 @@
+[System]
+Version=2.0
+SystemType=SingleProcessorSystem
+Status=Start
+RTP=Master
+
+[Master]
+Type=DS1005
+State=Enabled
+ServiceID=1
+BoardName=unknown
+File=mpc_avc_implementation.ppc

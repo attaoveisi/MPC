@@ -1,0 +1,37 @@
+%implements "machineHeader" "C"
+%function CacheOutputs(block,system,modelHFile,pubHFile,prvHFile,cFile) void
+%if FEVAL("sf_rtw","usesDSPLibrary",CompiledModel.Name)
+   %<LibAddToCommonIncludes("dsp_template_support_fcn_list.h")>
+%endif
+%if PurelyIntegerCode==0
+%<SLibAddToCommonIncludes("<stdlib.h>")>
+%endif
+%openfile definesBuf
+#include "rtlibsrc.h"
+%closefile definesBuf
+%<SLibSetModelFileAttribute(prvHFile,"Defines",definesBuf)>
+%openfile typedefsBuf   
+            
+%closefile typedefsBuf
+%<SLibSetModelFileAttribute(prvHFile,"Typedefs",typedefsBuf)>
+%openfile definesBuf   
+   #define CALL_EVENT (MAX_uint8_T)         
+%closefile definesBuf
+%<SLibSetModelFileAttribute(prvHFile,"Defines",definesBuf)>
+%openfile externDataBuf
+            
+            
+%closefile externDataBuf
+%<SLibSetModelFileAttribute(prvHFile,"ExternData",externDataBuf)>
+%openfile externDataBuf
+%closefile externDataBuf
+%<SLibSetModelFileAttribute(pubHFile,"ExternData",externDataBuf)>
+%openfile externDataBuf
+
+            
+            
+%closefile externDataBuf
+%<SLibSetModelFileAttribute(prvHFile,"ExternFcns",externDataBuf)>
+%endfunction %% CacheOutputs
+ 
+

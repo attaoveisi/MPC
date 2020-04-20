@@ -1,0 +1,3374 @@
+-- ******** Model variables ***************************************************
+
+group "Model Root"
+{
+ flags: COLLAPSED
+}
+	group "Demux" -- block-group
+	{
+	 block: "Demux"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[209]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_B_real_T_0[210]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out2"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Demux"
+
+	group "Ag" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[181]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[438]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6_6_Col*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Ag"
+
+	group "Amplifier" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[203]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[480]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Amplifier"
+
+	group "Amplifier1" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[211]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[486]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Amplifier1"
+
+	group "Amplifier2" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[205]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[481]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Amplifier2"
+
+	group "B" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[169]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[425]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6_2_Col*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "B"
+
+	group "Gain1" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[162]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[418]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Gain1"
+
+	group "H" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[163]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[419]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "H"
+
+	group "Piezo1_dspace" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[208]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[484]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Piezo1_dspace"
+
+	group "dSpace_gain1" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[209]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[485]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "dSpace_gain1"
+
+	group "dSpace_gain2" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[213]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[487]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "dSpace_gain2"
+
+	group "inv(Bg'*Bg)*Hg" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[193]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[474]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "inv(Bg'*Bg)*Hg"
+
+	group "on_off1" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[195]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[476]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "on_off1"
+
+	group "on_off2" -- block-group
+	{
+	 block: "Gain"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[201]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[479]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Gain"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "on_off2"
+
+	group "Ground" -- block-group
+	{
+	 block: "Ground"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		-- Skipping output Out1
+
+
+	endgroup -- block-group "Ground"
+
+	group "Mux" -- block-group
+	{
+	 block: "Mux"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[162]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1{SubArray1}"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_B_real_T_0[243]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1{SubArray2}"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Mux"
+
+	group "Saturation" -- block-group
+	{
+	 block: "Saturate"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[199]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[477]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "UpperLimit"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[478]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "LowerLimit"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Saturation"
+
+	group "Saturation1" -- block-group
+	{
+	 block: "Saturate"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[207]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[482]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "UpperLimit"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[483]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "LowerLimit"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Saturation1"
+
+	group "Control_Signal" -- block-group
+	{
+	 block: "Scope"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[203]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "In1"
+		 desc:    ""
+		 flags:   SINK|READONLY
+		}
+
+
+
+	endgroup -- block-group "Control_Signal"
+
+	group "Control_Signal1" -- block-group
+	{
+	 block: "Scope"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[205]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "In1"
+		 desc:    ""
+		 flags:   SINK|READONLY
+		}
+
+
+
+	endgroup -- block-group "Control_Signal1"
+
+	group "disturbance" -- block-group
+	{
+	 block: "Scope"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[162]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1{SubArray1}"
+		 desc:    ""
+		 flags:   SINK|READONLY
+		}
+		p_MPC_AVC_implementation_B_real_T_0[243]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1{SubArray2}"
+		 desc:    ""
+		 flags:   SINK|READONLY
+		}
+
+
+
+	endgroup -- block-group "disturbance"
+
+	group "velocimeter" -- block-group
+	{
+	 block: "Scope"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[211]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "In1"
+		 desc:    ""
+		 flags:   SINK|READONLY
+		}
+
+
+
+	endgroup -- block-group "velocimeter"
+
+	group "Delay" -- block-group
+	{
+	 block: "S-Function"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[175]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+		p_MPC_AVC_implementation_P_real_T_0[437]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "InitialCondition"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Delay"
+
+	group "Signal\nGenerator" -- block-group
+	{
+	 block: "SignalGenerator"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[214]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		RTISigGenWF[0]
+		{
+		 type:  int(32)
+		 alias: "WaveForm"
+		 flags: PARAM
+		}
+
+		p_MPC_AVC_implementation_P_real_T_0[488]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Amplitude"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[489]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Frequency"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Signal\nGenerator"
+
+	group "Sine Wave" -- block-group
+	{
+	 block: "Sin"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[215]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[490]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Amplitude"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[491]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Bias"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[492]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Frequency"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[493]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "SinH"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[494]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "CosH"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[495]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "SinPhi"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[496]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "CosPhi"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Sine Wave"
+
+	group "Analog\nFilter Design1" -- block-group
+	{
+	 block: "StateSpace"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[0]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[280]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_7*
+		 alias:   "A"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[287]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "B"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[288]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "C"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[289]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "X0"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Analog\nFilter Design1"
+
+	group "Step" -- block-group
+	{
+	 block: "Step"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[216]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_P_real_T_0[497]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Time"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[498]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Before"
+		 flags:   PARAM
+		}
+		p_MPC_AVC_implementation_P_real_T_0[499]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "After"
+		 flags:   PARAM
+		}
+
+
+	endgroup -- block-group "Step"
+
+	group "Add" -- block-group
+	{
+	 block: "Sum"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[187]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_6*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Add"
+
+	group "Add2" -- block-group
+	{
+	 block: "Sum"
+	 desc:  ""
+	 flags: BLOCK|COLLAPSED
+	}
+		p_MPC_AVC_implementation_B_real_T_0[197]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "Out1"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+
+	endgroup -- block-group "Add2"
+
+  
+  
+	group "Chirp Signal" -- subsystem-group
+	{
+	 flags: COLLAPSED
+	 desc:  ""
+	}
+
+		p_MPC_AVC_implementation_B_real_T_0[161]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "Out2"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "Clock1" -- block-group
+		{
+		 block: "Clock"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[155]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Clock1"
+
+		group "deltaFreq" -- block-group
+		{
+		 block: "Constant"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			-- Skipping output Out1
+			p_MPC_AVC_implementation_P_real_T_0[414]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "deltaFreq"
+
+		group "initialFreq" -- block-group
+		{
+		 block: "Constant"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			-- Skipping output Out1
+			p_MPC_AVC_implementation_P_real_T_0[417]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "initialFreq"
+
+		group "targetTime" -- block-group
+		{
+		 block: "Constant"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			-- Skipping output Out1
+			p_MPC_AVC_implementation_P_real_T_0[415]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "targetTime"
+
+		group "Gain" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[157]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[416]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain"
+
+		group "Product" -- block-group
+		{
+		 block: "Product"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[156]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product"
+
+		group "Product1" -- block-group
+		{
+		 block: "Product"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[158]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product1"
+
+		group "Product2" -- block-group
+		{
+		 block: "Product"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[160]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product2"
+
+		group "Sum" -- block-group
+		{
+		 block: "Sum"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[159]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Sum"
+
+		group "Output" -- block-group
+		{
+		 block: "Trigonometry"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[161]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Output"
+
+
+
+	endgroup -- subsystem-group "Chirp Signal"
+  
+  
+	group "Controller" -- subsystem-group
+	{
+	 flags: COLLAPSED
+	 desc:  ""
+	}
+
+		p_MPC_AVC_implementation_B_real_T_0[153]
+		{
+		 type:    MPC_AVC_implementation_ArrayDT0_2*
+		 alias:   "u"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+		p_MPC_AVC_implementation_B_real_T_0[243]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "theta"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+
+		group "y" -- block-group
+		{
+		 block: "Inport"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[0]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "y"
+
+		group "x_dot" -- block-group
+		{
+		 block: "Inport"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[187]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_6*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "x_dot"
+
+		group "MATLAB Function" -- block-group
+		{
+		 block: "Stateflow"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[245]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_10*
+			 alias:   "eta"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "MATLAB Function"
+
+		group "A_cons" -- block-group
+		{
+		 block: "Constant"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			-- Skipping output Out1
+			p_MPC_AVC_implementation_P_real_T_0[300]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4_10_Col*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "A_cons"
+
+		group "B_cons1" -- block-group
+		{
+		 block: "Constant"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			-- Skipping output Out1
+			p_MPC_AVC_implementation_P_real_T_0[376]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "B_cons1"
+
+		group "omega" -- block-group
+		{
+		 block: "Constant"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			-- Skipping output Out1
+			p_MPC_AVC_implementation_P_real_T_0[0]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_10_10_Col*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "omega"
+
+		group "psi" -- block-group
+		{
+		 block: "Constant"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			-- Skipping output Out1
+			p_MPC_AVC_implementation_P_real_T_0[100]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_10_18_Col*
+			 alias:   "Value"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "psi"
+
+		group "Gain1" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[123]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[400]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain1"
+
+		group "Gain10" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[127]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[402]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain10"
+
+		group "Gain11" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[31]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[344]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain11"
+
+		group "Gain12" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[39]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[347]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain12"
+
+		group "Gain13" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[23]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[341]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain13"
+
+		group "Gain14" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[47]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[350]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain14"
+
+		group "Gain15" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[33]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[345]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain15"
+
+		group "Gain16" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[25]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[342]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain16"
+
+		group "Gain17" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[49]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[351]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain17"
+
+		group "Gain18" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[41]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[348]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain18"
+
+		group "Gain19" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[139]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[408]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain19"
+
+		group "Gain2" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[151]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[413]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain2"
+
+		group "Gain20" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[137]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[407]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain20"
+
+		group "Gain21" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[135]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[406]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain21"
+
+		group "Gain22" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[133]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[405]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain22"
+
+		group "Gain23" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[63]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[356]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain23"
+
+		group "Gain24" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[71]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[359]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain24"
+
+		group "Gain25" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[55]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[353]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain25"
+
+		group "Gain26" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[79]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[362]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain26"
+
+		group "Gain27" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[65]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[357]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain27"
+
+		group "Gain28" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[57]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[354]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain28"
+
+		group "Gain29" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[81]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[363]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain29"
+
+		group "Gain3" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[147]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[412]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain3"
+
+		group "Gain30" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[73]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[360]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain30"
+
+		group "Gain31" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[95]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[368]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain31"
+
+		group "Gain32" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[103]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[371]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain32"
+
+		group "Gain33" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[87]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[365]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain33"
+
+		group "Gain34" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[111]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[374]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain34"
+
+		group "Gain35" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[97]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[369]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain35"
+
+		group "Gain36" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[89]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[366]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain36"
+
+		group "Gain37" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[113]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[375]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain37"
+
+		group "Gain38" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[105]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[372]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain38"
+
+		group "Gain4" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[145]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[411]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain4"
+
+		group "Gain5" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[143]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[410]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain5"
+
+		group "Gain6" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[141]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[409]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain6"
+
+		group "Gain7" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[125]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[401]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain7"
+
+		group "Gain8" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[131]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[404]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain8"
+
+		group "Gain9" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[129]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[403]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Gain9"
+
+		group "L_m" -- block-group
+		{
+		 block: "Gain"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[121]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[380]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2_10_Col*
+			 alias:   "Gain"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "L_m"
+
+		group "Mux1" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[53]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[55]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux1"
+
+		group "Mux10" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[93]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[95]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux10"
+
+		group "Mux11" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[101]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[103]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux11"
+
+		group "Mux12" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[109]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[111]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux12"
+
+		group "Mux2" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[21]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[23]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux2"
+
+		group "Mux3" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[29]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[31]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux3"
+
+		group "Mux4" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[37]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[39]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux4"
+
+		group "Mux5" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[45]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[47]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux5"
+
+		group "Mux6" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[61]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[63]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux6"
+
+		group "Mux7" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[69]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[71]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux7"
+
+		group "Mux8" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[77]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[79]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux8"
+
+		group "Mux9" -- block-group
+		{
+		 block: "Mux"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[85]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[87]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Mux9"
+
+		group "Product" -- block-group
+		{
+		 block: "Product"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[1]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_10*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Product"
+
+		group "Kalman_observation" -- block-group
+		{
+		 block: "Scope"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[294]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1{SubArray1}"
+			 desc:    ""
+			 flags:   SINK|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[291]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "In1{SubArray2}"
+			 desc:    ""
+			 flags:   SINK|READONLY
+			}
+
+
+
+		endgroup -- block-group "Kalman_observation"
+
+		group "Add" -- block-group
+		{
+		 block: "Sum"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[149]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Add"
+
+		group "Add1" -- block-group
+		{
+		 block: "Sum"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[117]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_4*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Add1"
+
+		group "Sum" -- block-group
+		{
+		 block: "Sum"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[153]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+		endgroup -- block-group "Sum"
+
+		group "Unit Delay1" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[93]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[367]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay1"
+
+		group "Unit Delay10" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[69]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[358]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay10"
+
+		group "Unit Delay11" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[77]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[361]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay11"
+
+		group "Unit Delay12" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[53]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[352]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay12"
+
+		group "Unit Delay13" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[29]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[343]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay13"
+
+		group "Unit Delay14" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[37]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[346]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay14"
+
+		group "Unit Delay15" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[45]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[349]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay15"
+
+		group "Unit Delay16" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[21]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[340]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay16"
+
+		group "Unit Delay2" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[101]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[370]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay2"
+
+		group "Unit Delay6" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[109]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[373]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay6"
+
+		group "Unit Delay7" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[85]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[364]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay7"
+
+		group "Unit Delay9" -- block-group
+		{
+		 block: "UnitDelay"
+		 desc:  ""
+		 flags: BLOCK|COLLAPSED
+		}
+			p_MPC_AVC_implementation_B_real_T_0[61]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_2*
+			 alias:   "Out1"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_P_real_T_0[355]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "X0"
+			 flags:   PARAM
+			}
+
+
+		endgroup -- block-group "Unit Delay9"
+
+  
+  
+		group "Dumm_subsys" -- subsystem-group
+		{
+		 flags: COLLAPSED
+		 desc:  ""
+		}
+
+			p_MPC_AVC_implementation_B_real_T_0[11]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_10*
+			 alias:   "f_out"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "f_in" -- block-group
+			{
+			 block: "Inport"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[1]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_10*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "f_in"
+
+			group "zeros(1,10)" -- block-group
+			{
+			 block: "Constant"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				-- Skipping output Out1
+				p_MPC_AVC_implementation_P_real_T_0[290]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_10*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "zeros(1,10)"
+
+			group "Add2" -- block-group
+			{
+			 block: "Sum"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[11]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_10*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add2"
+
+
+
+		endgroup -- subsystem-group "Dumm_subsys"
+  
+  
+		group "Kalman Filter" -- subsystem-group
+		{
+		 flags: COLLAPSED
+		 desc:  ""
+		}
+
+			p_MPC_AVC_implementation_B_real_T_0[255]
+			{
+			 type:    MPC_AVC_implementation_ArrayDT0_18*
+			 alias:   "X"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[294]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "e{SubArray1}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[291]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "e{SubArray2}"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+			p_MPC_AVC_implementation_B_real_T_0[332]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "k"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "us" -- block-group
+			{
+			 block: "Inport"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[123]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_2*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "us"
+
+			group "y" -- block-group
+			{
+			 block: "Inport"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[294]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "y"
+
+			group "MATLAB Function1" -- block-group
+			{
+			 block: "Stateflow"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[332]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "kk1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "MATLAB Function1"
+
+			group "MATLAB Function2" -- block-group
+			{
+			 block: "Stateflow"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[314]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18*
+				 alias:   "y"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "MATLAB Function2"
+
+			group "Constant" -- block-group
+			{
+			 block: "Constant"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				-- Skipping output Out1
+				p_MPC_AVC_implementation_P_real_T_0[879]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Constant"
+
+			group "Lf1" -- block-group
+			{
+			 block: "Constant"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				-- Skipping output Out1
+				p_MPC_AVC_implementation_P_real_T_0[882]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18_24999_Col*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Lf1"
+
+			group "A" -- block-group
+			{
+			 block: "Gain"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[273]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[537]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18_18_Col*
+				 alias:   "Gain"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "A"
+
+			group "B" -- block-group
+			{
+			 block: "Gain"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[333]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[500]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18_2_Col*
+				 alias:   "Gain"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "B"
+
+			group "C" -- block-group
+			{
+			 block: "Gain"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[291]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[861]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18*
+				 alias:   "Gain"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "C"
+
+			group "Gain" -- block-group
+			{
+			 block: "Gain"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[293]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[881]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Gain"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Gain"
+
+			group "Integrator" -- block-group
+			{
+			 block: "Integrator"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[292]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[880]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Integrator"
+
+			group "Mux" -- block-group
+			{
+			 block: "Mux"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[294]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1{SubArray1}"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_B_real_T_0[291]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1{SubArray2}"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Mux"
+
+			group "Product" -- block-group
+			{
+			 block: "Product"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[296]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Product"
+
+			group "Sum" -- block-group
+			{
+			 block: "Sum"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[351]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Sum"
+
+			group "Sum1" -- block-group
+			{
+			 block: "Sum"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[295]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Sum1"
+
+			group "Unit Delay3" -- block-group
+			{
+			 block: "UnitDelay"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[255]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_18*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[536]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "X0"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Unit Delay3"
+
+
+
+		endgroup -- subsystem-group "Kalman Filter"
+  
+  
+		group "Recursive LS_all" -- subsystem-group
+		{
+		 flags: COLLAPSED
+		 desc:  ""
+		}
+
+			p_MPC_AVC_implementation_B_real_T_0[243]
+			{
+			 type:    flt(64,IEEE)*
+			 alias:   "theta"
+			 desc:    ""
+			 flags:   OUTPUT|READONLY
+			}
+
+
+			group "u" -- block-group
+			{
+			 block: "Inport"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[153]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_2*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "u"
+
+			group "kk" -- block-group
+			{
+			 block: "Inport"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[332]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "kk"
+
+			group "x_dot" -- block-group
+			{
+			 block: "Inport"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[187]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "x_dot"
+
+			group "MATLAB Function1" -- block-group
+			{
+			 block: "Stateflow"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[243]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "theta"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_B_real_T_0[244]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Ps1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "MATLAB Function1"
+
+			group "Hg" -- block-group
+			{
+			 block: "Constant"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				-- Skipping output Out1
+				p_MPC_AVC_implementation_P_real_T_0[450913]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Hg"
+
+			group "Ps" -- block-group
+			{
+			 block: "Constant"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				-- Skipping output Out1
+				p_MPC_AVC_implementation_P_real_T_0[450919]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Ps"
+
+			group "Rs" -- block-group
+			{
+			 block: "Constant"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				-- Skipping output Out1
+				p_MPC_AVC_implementation_P_real_T_0[450921]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Value"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Rs"
+
+			group "Ag" -- block-group
+			{
+			 block: "Gain"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[223]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[450865]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6_6_Col*
+				 alias:   "Gain"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Ag"
+
+			group "Bg" -- block-group
+			{
+			 block: "Gain"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[229]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[450901]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6_2_Col*
+				 alias:   "Gain"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Bg"
+
+			group "Delay" -- block-group
+			{
+			 block: "S-Function"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[217]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+				p_MPC_AVC_implementation_P_real_T_0[450864]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "InitialCondition"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Delay"
+
+			group "Add2" -- block-group
+			{
+			 block: "Sum"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[235]
+				{
+				 type:    MPC_AVC_implementation_ArrayDT0_6*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+
+
+			endgroup -- block-group "Add2"
+
+			group "Unit Delay3" -- block-group
+			{
+			 block: "UnitDelay"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[242]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[450922]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "X0"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Unit Delay3"
+
+			group "Unit Delay4" -- block-group
+			{
+			 block: "UnitDelay"
+			 desc:  ""
+			 flags: BLOCK|COLLAPSED
+			}
+				p_MPC_AVC_implementation_B_real_T_0[241]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "Out1"
+				 desc:    ""
+				 flags:   OUTPUT|READONLY
+				}
+				p_MPC_AVC_implementation_P_real_T_0[450920]
+				{
+				 type:    flt(64,IEEE)*
+				 alias:   "X0"
+				 flags:   PARAM
+				}
+
+
+			endgroup -- block-group "Unit Delay4"
+
+
+
+		endgroup -- subsystem-group "Recursive LS_all"
+
+
+	endgroup -- subsystem-group "Controller"
+  
+  
+	group "DS2004ADC_BL1" -- subsystem-group
+	{
+	 flags: COLLAPSED
+	 desc:  ""
+	}
+
+		p_MPC_AVC_implementation_B_real_T_0[212]
+		{
+		 type:    flt(64,IEEE)*
+		 alias:   "ADC"
+		 desc:    ""
+		 flags:   OUTPUT|READONLY
+		}
+
+	endgroup -- subsystem-group "DS2004ADC_BL1"
+  
+  
+	group "DS2102_B1" -- subsystem-group
+	{
+	 flags: COLLAPSED
+	 desc:  ""
+	}
+
+
+	endgroup -- subsystem-group "DS2102_B1"
+  
+  
+	group "RTI Data" -- subsystem-group
+	{
+	 flags: COLLAPSED
+	 desc:  ""
+	}
+
+
+	endgroup -- subsystem-group "RTI Data"
+
+
+
+
+endgroup -- "Model Root"

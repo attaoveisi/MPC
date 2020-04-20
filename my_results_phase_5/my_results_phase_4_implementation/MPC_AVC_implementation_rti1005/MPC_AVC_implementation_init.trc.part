@@ -1,0 +1,122 @@
+-- ****************************************************************************
+--
+--  Trace file: MPC_AVC_implementation.trc
+--
+--  RTI1005 6.2 (14-Nov-2008)
+--  Wed Mar 02 12:18:25 2016
+--
+--  Used options:
+--    TRCGenerateVirtualBlocks      = 1
+--    TRCGenerateLabels             = 1
+--    TRCMaskParameters             = 0
+--    TRCGenerateStates             = 0
+--    TRCGenerateDerivatives        = 0
+--    TRCGenerateParamValues        = 0
+--    TRCGenerateApplicationKeyword = 0
+--    EnableRTWCodeReuse            = 1
+--
+--  Trace file format: 2
+--
+--  (c) Copyright 2008, dSPACE GmbH. All rights reserved.
+--
+-- ****************************************************************************
+
+-- ******** Keywords **********************************************************
+
+-- _application "MPC_AVC_implementation.map"
+
+_genname     "RTI"
+_genversion  "6.2"
+_gendate     "03/02/2016 12:18:31"
+_description ""
+_author      "RTI1005 6.2 (14-Nov-2008)"
+_model       "MPC_AVC_implementation.mdl"
+
+-- Default data type formats
+_floating_point_type(64,IEEE)
+_integer_type(32)
+
+-- No Data Capture blocks within model: use base sample time as sampling period
+sampling_period[0]
+{
+  value:       0.001
+  alias:       "HostService"
+  increment:   0.001
+  unit:        "s"
+}
+
+
+-- Type definitions for arrays
+typedef MPC_AVC_implementation_ArrayDT0_10 flt(64,IEEE)[10]
+typedef MPC_AVC_implementation_ArrayDT0_2 flt(64,IEEE)[2]
+typedef MPC_AVC_implementation_ArrayDT0_4 flt(64,IEEE)[4]
+typedef MPC_AVC_implementation_ArrayDT0_6 flt(64,IEEE)[6]
+typedef MPC_AVC_implementation_ArrayDT0_18 flt(64,IEEE)[18]
+typedef MPC_AVC_implementation_ArrayDT0_10_10_Col col flt(64,IEEE)[10][10]
+typedef MPC_AVC_implementation_ArrayDT0_10_18_Col col flt(64,IEEE)[10][18]
+typedef MPC_AVC_implementation_ArrayDT0_7 flt(64,IEEE)[7]
+typedef MPC_AVC_implementation_ArrayDT0_4_10_Col col flt(64,IEEE)[4][10]
+typedef MPC_AVC_implementation_ArrayDT0_2_10_Col col flt(64,IEEE)[2][10]
+typedef MPC_AVC_implementation_ArrayDT0_6_2_Col col flt(64,IEEE)[6][2]
+typedef MPC_AVC_implementation_ArrayDT0_6_6_Col col flt(64,IEEE)[6][6]
+typedef MPC_AVC_implementation_ArrayDT0_18_2_Col col flt(64,IEEE)[18][2]
+typedef MPC_AVC_implementation_ArrayDT0_18_18_Col col flt(64,IEEE)[18][18]
+typedef MPC_AVC_implementation_ArrayDT0_18_24999_Col col flt(64,IEEE)[18][24999]
+
+-- ******** Simulation control variables **************************************
+
+finalTime
+{
+ type:  flt(64,IEEE)*
+ alias: "finalTime"
+ desc:  "Simulation stop time. When reached, simState switches to STOP."
+ flags:  SYSTEM|READONLY
+ unit:  "s"
+}
+
+currentTime
+{
+ type:  flt(64,IEEE)*
+ alias: "currentTime"
+ desc:  "Current simulation time. Increments with execution of Timer Task 1."
+ flags: SYSTEM|READONLY
+ unit:  "s"
+}
+
+modelStepSize
+{
+ type:  flt(64,IEEE)
+ alias: "modelStepSize"
+ desc:  "Fixed step size of the model, sample time of Timer Task 1."
+ flags: SYSTEM|READONLY
+ unit:  "s"
+}
+
+simState
+{
+ type:  int(32)
+ alias: "simState"
+ desc:  "Simulation state: STOP=0 PAUSE=1 RUN=2"
+ flags: SYSTEM
+ unit:  "-"
+}
+
+msg_last_error_no
+{
+ type:  uint(32)
+ alias: "errorNumber"
+ desc:  "Error number of last error message (zero if no error)."
+ unit:  "-"
+ flags: SYSTEM|READONLY
+}
+
+rtiAssertionMode
+{
+ type:  int(32)
+ alias: "rtiAssertionMode"
+ desc:  "Assertion Mode: OFF=0 WARN=1 STOP=2"
+ flags: SYSTEM
+ unit:  "-"
+}
+
+
